@@ -692,6 +692,15 @@ def tf_additional_core_deps():
         "//conditions:default": [
             "//tensorflow/core/platform/s3:s3_file_system",
         ],
+    })  + select({
+        "//tensorflow:android": [],
+        "//tensorflow:ios": [],
+        "//tensorflow:linux_s390x": [],
+        "//tensorflow:windows": [],
+        "//tensorflow:no_oss_support": [],
+        "//conditions:default": [
+            "//tensorflow/core/platform/oss:oss_file_system",
+        ],
     })
 
 # TODO(jart, jhseu): Delete when GCP is default on.
