@@ -1065,6 +1065,67 @@ def tf_repositories(path_prefix = "", tf_repo_name = ""):
         ],
     )
 
+    tf_http_archive(
+        name = "libexpat",
+        build_file = clean_dep("//third_party:libexpat.BUILD"),
+        sha256 = "574499cba22a599393e28d99ecfa1e7fc85be7d6651d543045244d5b561cb7ff",
+        strip_prefix = "libexpat-R_2_2_6/expat",
+        urls = [
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/libexpat/libexpat/archive/R_2_2_6.tar.gz",
+            "http://github.com/libexpat/libexpat/archive/R_2_2_6.tar.gz",
+        ],
+    )
+
+    tf_http_archive(
+        name = "libapr1",
+        build_file = clean_dep("//third_party:libapr1.BUILD"),
+        # patch_args = ["-p1"],
+        patch_file = clean_dep("//third_party:libapr1.patch"),
+        sha256 = "096968a363b2374f7450a3c65f3cc0b50561204a8da7bc03a2c39e080febd6e1",
+        strip_prefix = "apr-1.6.5",
+        urls = [
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/apache/apr/archive/1.6.5.tar.gz",
+            "https://github.com/apache/apr/archive/1.6.5.tar.gz",
+        ],
+    )
+
+    tf_http_archive(
+        name = "libaprutil1",
+        build_file = clean_dep("//third_party:libaprutil1.BUILD"),
+        # patch_args = ["-p1"],
+        patch_file = clean_dep("//third_party:libaprutil1.patch"),
+        sha256 = "1e4299da5a3eca49cc3acab60600d0d7c0cda2de46d662ca14fadf5ab68a8c4f",
+        strip_prefix = "apr-util-1.6.1",
+        urls = [
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/apache/apr-util/archive/1.6.1.tar.gz",
+            "https://github.com/apache/apr-util/archive/1.6.1.tar.gz",
+        ],
+    )
+
+    tf_http_archive(
+        name = "mxml",
+        build_file = clean_dep("//third_party:mxml.BUILD"),
+        # patch_args = ["-p1"],
+        patch_file = clean_dep("//third_party:mxml.patch"),
+        sha256 = "4d850d15cdd4fdb9e82817eb069050d7575059a9a2729c82b23440e4445da199",
+        strip_prefix = "mxml-2.12",
+        urls = [
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/michaelrsweet/mxml/archive/v2.12.tar.gz",
+            "https://github.com/michaelrsweet/mxml/archive/v2.12.tar.gz",
+        ],
+    )
+
+    tf_http_archive(
+        name = "aliyun_oss_c_sdk",
+        build_file = clean_dep("//third_party:oss_c_sdk.BUILD"),
+        sha256 = "6450d3970578c794b23e9e1645440c6f42f63be3f82383097660db5cf2fba685",
+        strip_prefix = "aliyun-oss-c-sdk-3.7.0",
+        urls = [
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/aliyun/aliyun-oss-c-sdk/archive/3.7.0.tar.gz",
+            "https://github.com/aliyun/aliyun-oss-c-sdk/archive/3.7.0.tar.gz",
+        ],
+    )
+
 def tf_bind():
     """Bind targets for some external repositories"""
     ##############################################################################
